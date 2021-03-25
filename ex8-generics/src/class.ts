@@ -1,4 +1,6 @@
 class DataStorage<T> {
+// we can limit the types accepted in the generic parametrized type as follows:
+// calls DataStorage<T extends number | string | boolean>
     private data: T[] = []
 
     addItem(item: T) {
