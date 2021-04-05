@@ -1,4 +1,4 @@
-// here we can see the Log Decorator functionality
+// here we can see the decorator functionality: it executes on the definition (when method/function/parameter is registered in memory) @ runtime
 
 // property decorator, with defult parameters target & propertyName
 function Log(target: any, propertyName: string | Symbol) {
@@ -54,4 +54,5 @@ class Product {
     getPriceWithTax(@Log4 tax: number) {
         return this._price * (1 + (tax / 100))
     }
+    
 }
