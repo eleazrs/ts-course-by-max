@@ -1,13 +1,13 @@
 // here we can see the decorator functionality: it executes on the definition (when method/function/parameter is registered in memory) @ runtime
 
-// property decorator, with defult parameters target & propertyName
+// property decorator, with default parameters target & propertyName
 function Log(target: any, propertyName: string | Symbol) {
     console.log('Property decorator')
     console.log(target, propertyName)
 
 }
 
-// accessor decorator, with defult parameters target, name & descriptor
+// accessor decorator, with default parameters target, name & descriptor
 function Log2(target: any, name: string, descriptor: PropertyDescriptor) {
     console.log('Accessor decorator')
     console.log(target)
@@ -15,8 +15,16 @@ function Log2(target: any, name: string, descriptor: PropertyDescriptor) {
     console.log(descriptor)
 }
 
-// method decorator, with defult parameters target, name & descriptor
+// method decorator, with default parameters target, name & descriptor
 function Log3(target: any, name: string | Symbol, descriptor: PropertyDescriptor) {
+    console.log('Method decorator')
+    console.log(target)
+    console.log(name)
+    console.log(descriptor)
+}
+
+// method decorator, with default parameters target, name & descriptor
+function Log3Autobind(target: any, name: string | Symbol, descriptor: PropertyDescriptor) {
     console.log('Method decorator')
     console.log(target)
     console.log(name)
