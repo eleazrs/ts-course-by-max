@@ -1,5 +1,5 @@
 class Printer {
-    message = 'This works!'
+    message = 'This works! ... but in old style binding way'
 
     showMessage() {
         console.log(this.message)
@@ -8,7 +8,7 @@ class Printer {
 
 const p = new Printer()
 
-const button = document.querySelector('button')!
+const button = document.getElementById('old-button')!
 // with this approach it gets 'this' from the addEventListener context, not from the object
 // button.addEventListener('click', p.showMessage)
 
@@ -40,10 +40,16 @@ function Autobind(_1: any, _2: string, descriptor: PropertyDescriptor) {
 }
 
 class PrinterAutobinded {
-    message = 'This works!'
+    message = 'This works awesomely! yesss!! autobinding works!'
 
     @Autobind
     showMessage() {
         console.log(this.message)
     }
 }
+//instantiate the printerAutobinded class...
+const autobinded = new PrinterAutobinded()
+
+//now get the button and create the trigger
+const newButton = document.getElementById('new-button')!
+newButton.addEventListener('click', () => autobinded.showMessage())
